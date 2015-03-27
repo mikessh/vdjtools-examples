@@ -1,0 +1,5 @@
+#file.name	sample.id	Time post HSCT, months
+../samples/4months.txt.gz	4m	4
+../samples/10months.txt.gz	10m	10
+../samples/37months.txt.gz	37m	37
+../samples/minus48months.txt.gz	before	-48
