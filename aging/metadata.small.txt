@@ -1,0 +1,6 @@
+#file.name	sample.id	sex	age
+../samples/A2-i140.txt.gz	A2-i140	F	73
+../samples/A4-i189.txt.gz	A4-i189	M	25
+../samples/A4-i190.txt.gz	A4-i190	M	25
+../samples/A3-i150.txt.gz	A3-i150 F	87
+../samples/A3-i151.txt.gz	A3-i151 F	87

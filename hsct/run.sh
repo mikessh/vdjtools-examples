@@ -11,8 +11,8 @@ $VDJTOOLS CalcDiversityStats -m metadata.txt out/3
 $VDJTOOLS RarefactionPlot -m metadata.txt -f "Time post HSCT, months" -n -l sample.id out/4
 
 # clonotype tracking
-$VDJTOOLS IntersectPair -p ../samples/minus48months.txt.gz ../samples/4months.txt.gz out/5
-$VDJTOOLS IntersectSequential -m metadata.txt -f "Time post HSCT, months" -x 0 -p out/6
+$VDJTOOLS OverlapPair -p ../samples/minus48months.txt.gz ../samples/4months.txt.gz out/5
+$VDJTOOLS TrackClonotypes -m metadata.txt -f "Time post HSCT, months" -x 0 -p out/6
 
 # check expansion of CMV/EBV clonotypes
 $VDJTOOLS ScanDatabase -m metadata.txt -f --filter "__origin__.contains('CMV')||__origin__.contains('EBV')" out/7

@@ -1,5 +1,5 @@
 # point vdjtools executable
-VDJTOOLS="java -Xmx6G -jar ../vdjtools-1.0-SNAPSHOT.jar"
+VDJTOOLS="java -Xmx20G -jar ../vdjtools-1.0-SNAPSHOT.jar"
 
 # demonstrate  basic analysis
 $VDJTOOLS CalcBasicStats -m metadata.txt out/0
@@ -11,19 +11,21 @@ $VDJTOOLS PlotFancyVJUsage .../samples/A4-i125.txt.gz out/5
 
 # demonstrate diversity estiamtes
 $VDJTOOLS PlotQuantileStats ../samples/A4-i125.txt.gz out/6
-$VDJTOOLS CalcDiversityStats -m metadata.txt -x 5000 out/7
+$VDJTOOLS CalcDiversityStats -m metadata.txt out/7
 $VDJTOOLS RarefactionPlot -m metadata.txt -f age -n -l sample.id out/8
 
-# demonstrate sample intersection
-$VDJTOOLS IntersectPair -S mitcr -p ../samples/A4-i189.txt.gz ../samples/A4-i190.txt.gz out/9
-$VDJTOOLS BatchIntersectPair -m metadata.txt out/10
-$VDJTOOLS BatchIntersectPairPlot -f age -n -l sample.id out/10 out/10.age
-$VDJTOOLS BatchIntersectPairPlot -m vJSD -f sex -l sample.id out/10 out/10.sex
+# demonstrate sample overlap
+$VDJTOOLS OverlapPair -p ../samples/A4-i189.txt.gz ../samples/A4-i190.txt.gz out/9
+$VDJTOOLS CalcPairwiseDistances -m metadata.small.txt out/10
+$VDJTOOLS ClusterSamples -p -f age -n -l sample.id out/10 out/10.age
+$VDJTOOLS ClusterSamples -p -e vJSD -f sex -l sample.id out/10 out/10.sex
 
 # demonstrate database annotation
 $VDJTOOLS ScanDatabase -m metadata.txt -f --filter "__origin__=~/EBV/" out/11
 
-# demonstrate sample maniputaltion
+# demonstrate sample operations and filtering
 $VDJTOOLS Decontaminate -m metadata.txt -c out/dec/
-$VDJTOOLS Downsample -m metadata.txt -c -x 5000 out/ds/
+$VDJTOOLS Downsample -m metadata.txt -c -x 10000 out/ds/
 $VDJTOOLS FilterNonFunctional -m metadata.txt -c out/nf/
+$VDJTOOLS JoinSamples -p -m metadata.small.txt out/12
+$VDJTOOLS PoolSamples -w -m metadata.small.txt out/13
