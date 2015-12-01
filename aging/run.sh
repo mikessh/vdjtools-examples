@@ -1,5 +1,5 @@
 # point vdjtools executable
-VDJTOOLS="java -Xmx20G -jar ../vdjtools-1.0-SNAPSHOT.jar"
+VDJTOOLS="java -Xmx20G -jar ../vdjtools.jar"
 
 # demonstrate  basic analysis
 $VDJTOOLS CalcBasicStats -m metadata.txt out/0
@@ -7,7 +7,7 @@ $VDJTOOLS CalcSpectratype -m metadata.txt out/1
 $VDJTOOLS CalcSegmentUsage -m metadata.txt -p -f age -n out/2
 $VDJTOOLS PlotFancySpectratype ../samples/A4-i125.txt.gz out/3
 $VDJTOOLS PlotSpectratypeV ../samples/A4-i125.txt.gz out/4
-$VDJTOOLS PlotFancyVJUsage .../samples/A4-i125.txt.gz out/5
+$VDJTOOLS PlotFancyVJUsage ../samples/A4-i125.txt.gz out/5
 
 # demonstrate diversity estimates
 $VDJTOOLS PlotQuantileStats ../samples/A4-i125.txt.gz out/6
@@ -19,8 +19,8 @@ $VDJTOOLS OverlapPair -p ../samples/A4-i189.txt.gz ../samples/A4-i190.txt.gz out
 $VDJTOOLS CalcPairwiseDistances -m metadata.small.txt out/10
 $VDJTOOLS ClusterSamples -p -f age -n -l sample.id out/10 out/10.age
 
-# demonstrate database annotation
-$VDJTOOLS ScanDatabase -m metadata.txt -f --filter "__origin__=~/EBV/" out/11
+# demonstrate database annotation. Only v1.0.4 and earlier
+#$VDJTOOLS ScanDatabase -m metadata.txt -f --filter "__origin__=~/EBV/" out/11
 
 # demonstrate sample operations and filtering
 $VDJTOOLS Decontaminate -m metadata.txt -c out/dec/

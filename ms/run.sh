@@ -1,5 +1,5 @@
 # point the vdjtools executable
-VDJTOOLS="java -Xmx20G -jar ../vdjtools-1.0-SNAPSHOT.jar"
+VDJTOOLS="java -Xmx20G -jar ../vdjtools.jar"
 
 # shows higher clonality for MS samples
 $VDJTOOLS RarefactionPlot -m metadata.txt -l sample_id -f state diversity/

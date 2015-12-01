@@ -8,6 +8,6 @@ do
    groovy Convert.groovy $f;
 done
 # compute similarity measures
-java -Xmx40G -jar ../vdjtools-1.0-SNAPSHOT.jar CalcPairwiseDistances -m metadata.txt -p .
+java -Xmx40G -jar ../vdjtools.jar CalcPairwiseDistances -m metadata.txt -p .
 # benchmark
 Rscript analyze.R

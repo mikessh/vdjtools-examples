@@ -1,5 +1,5 @@
 # point to vdjtools executable
-VDJTOOLS="java -Xmx8G -jar ../vdjtools-1.0-SNAPSHOT.jar"
+VDJTOOLS="java -Xmx8G -jar ../vdjtools.jar"
 
 # perform basic analysis
 $VDJTOOLS CalcBasicStats -m metadata.txt out/0
